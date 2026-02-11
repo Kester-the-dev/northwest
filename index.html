@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northwest Litres Calculator</title>
+    <link rel="stylesheet" href="cal.css">
+</head>
+<body>
+
+ <div class="container">
+    <h1>Northwest</h1>
+
+    <label>Opening 1</label>
+    <input type="number" id="open1" onkeyup="calculate()">
+
+    <label>Opening 2</label>
+    <input type="number" id="open2" onkeyup="calculate()">
+                
+                    <hr>
+
+    <label>Closing 1</label>
+    <input type="number" id="close1" onkeyup="calculate()">
+
+    <label>Closing 2</label>
+    <input type="number" id="close2" onkeyup="calculate()">
+
+    <label>Price per Litre</label>
+    <input type="number" id="price" onkeyup="calculate()">
+
+    <div class="result" id="result">
+        Litres (Face 1): 0 <br>
+        Litres (Face 2): 0 <br><br>
+
+        <hr>
+
+        <strong>Total Litres: 0</strong><br>
+        <strong>Total Amount: ₦0</strong>
+  </div>
+</div>
+
+<div class="container">
+
+    <h1>Mode of payment</h1>
+
+
+    <label for="">Voucher</label>
+    <input type="number" id="voucher"  onkeyup="calculateCash()">
+
+    <br><br>
+
+    <label for="">Vita</label>
+    <input type="number" id="vita" onkeyup="calculateCash()">
+
+    <br><br>
+
+    <label for="">GTB POS</label>
+    <input type="number" id="gtbpos" onkeyup="calculateCash()">
+
+    <br><br>
+
+    <label for="">PB POS</label>
+    <input type="number" id="pbpos" onkeyup="calculateCash()">
+
+    <br><br>
+    <label for="">PB Transfer</label>
+    <input type="number" id="pbtf" onkeyup="calculateCash()">
+
+    <br><br>
+
+    <label for="">GTB Transfer</label>
+    <input type="number" id="gtbtf" onkeyup="calculateCash()">
+
+    <br><br><br>
+
+    <strong>Total cash: 0</strong>
+</div>
+
+            <h6><strong>MORE THAN YOU EXPECT</strong></h6>
+  <script src="calculate.js"></script>
+
+</body>
+</html>
