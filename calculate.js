@@ -1,13 +1,21 @@
 // Global total amount from meter
 let totalAmount = 0;
 
+function formatInput(input) {
+  // Remove any existing commas and format with commas
+  let value = input.value.replace(/,/g, '');
+  if (value && !isNaN(value)) {
+    input.value = Number(value).toLocaleString();
+  }
+}
+
 function calculate() {
-  // METER VALUES
-  const open1 = Number(document.getElementById("open1").value) || 0;
-  const open2 = Number(document.getElementById("open2").value) || 0;
-  const close1 = Number(document.getElementById("close1").value) || 0;
-  const close2 = Number(document.getElementById("close2").value) || 0;
-  const price = Number(document.getElementById("price").value) || 0;
+  // METER VALUES - parse formatted input (remove commas)
+  const open1 = Number(document.getElementById("open1").value.replace(/,/g, '')) || 0;
+  const open2 = Number(document.getElementById("open2").value.replace(/,/g, '')) || 0;
+  const close1 = Number(document.getElementById("close1").value.replace(/,/g, '')) || 0;
+  const close2 = Number(document.getElementById("close2").value.replace(/,/g, '')) || 0;
+  const price = Number(document.getElementById("price").value.replace(/,/g, '')) || 0;
 
   // PER FACE CALCULATION
   const litres1 = close1 - open1;
@@ -18,10 +26,10 @@ function calculate() {
 
   // UPDATE METER RESULT UI
   document.getElementById("result").innerHTML = `
-    Litres (Face 1): ${litres1} <br>
-    Litres (Face 2): ${litres2} <br><br>
+    Litres (Face 1): ${litres1.toLocaleString()} <br>
+    Litres (Face 2): ${litres2.toLocaleString()} <br><br>
     <hr>
-    <strong>Total Litres: ${totalLitres}</strong><br>
+    <strong>Total Litres: ${totalLitres.toLocaleString()}</strong><br>
     <strong>Total Amount: ₦${totalAmount.toLocaleString()}</strong>
   `;
 
@@ -30,13 +38,13 @@ function calculate() {
 }
 
 function calculateCash() {
-  // PAYMENT MODES
-  const voucher = Number(document.getElementById("voucher").value) || 0;
-  const vita = Number(document.getElementById("vita").value) || 0;
-  const gtbpos = Number(document.getElementById("gtbpos").value) || 0;
-  const pbpos = Number(document.getElementById("pbpos").value) || 0;
-  const pbtf = Number(document.getElementById("pbtf").value) || 0;
-  const gtbtf = Number(document.getElementById("gtbtf").value) || 0;
+  // PAYMENT MODES - parse formatted input (remove commas)
+  const voucher = Number(document.getElementById("voucher").value.replace(/,/g, '')) || 0;
+  const vita = Number(document.getElementById("vita").value.replace(/,/g, '')) || 0;
+  const gtbpos = Number(document.getElementById("gtbpos").value.replace(/,/g, '')) || 0;
+  const pbpos = Number(document.getElementById("pbpos").value.replace(/,/g, '')) || 0;
+  const pbtf = Number(document.getElementById("pbtf").value.replace(/,/g, '')) || 0;
+  const gtbtf = Number(document.getElementById("gtbtf").value.replace(/,/g, '')) || 0;
 
   // TOTAL NON-CASH
   const nonCashTotal =
@@ -56,6 +64,16 @@ function calculateCash() {
 
 // ADD LIVE KEYUP TO PAYMENT INPUTS
 document.addEventListener("DOMContentLoaded", () => {
+  // Meter inputs
+  const meterInputs = ["open1", "open2", "close1", "close2", "price"];
+  meterInputs.forEach(id => {
+    const input = document.getElementById(id);
+    input.addEventListener("keyup", () => {
+      formatInput(input);
+      calculate();
+    });
+  });
+
   const paymentInputs = [
     "voucher",
     "vita",
@@ -66,6 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   paymentInputs.forEach(id => {
-    document.getElementById(id).addEventListener("keyup", calculateCash);
+    const input = document.getElementById(id);
+    input.addEventListener("keyup", () => {
+      formatInput(input);
+      calculateCash();
+    });
   });
 });

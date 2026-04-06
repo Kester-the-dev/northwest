@@ -12,21 +12,21 @@
     <h1>Northwest</h1>
 
     <label>Opening 1</label>
-    <input type="number" id="open1" onkeyup="calculate()">
+    <input type="text" id="open1" onkeyup="formatInput(this); calculate()">
 
     <label>Opening 2</label>
-    <input type="number" id="open2" onkeyup="calculate()">
+    <input type="text" id="open2" onkeyup="formatInput(this); calculate()">
                 
                     <hr>
 
     <label>Closing 1</label>
-    <input type="number" id="close1" onkeyup="calculate()">
+    <input type="text" id="close1" onkeyup="formatInput(this); calculate()">
 
     <label>Closing 2</label>
-    <input type="number" id="close2" onkeyup="calculate()">
+    <input type="text" id="close2" onkeyup="formatInput(this); calculate()">
 
     <label>Price per Litre</label>
-    <input type="number" id="price" onkeyup="calculate()">
+    <input type="text" id="price" onkeyup="formatInput(this); calculate()">
 
     <div class="result" id="result">
         Litres (Face 1): 0 <br>
@@ -45,31 +45,31 @@
 
 
     <label for="">Voucher</label>
-    <input type="number" id="voucher"  onkeyup="calculateCash()">
+    <input type="text" id="voucher" onkeyup="formatInput(this); calculateCash()">
 
     <br><br>
 
     <label for="">Vita</label>
-    <input type="number" id="vita" onkeyup="calculateCash()">
+    <input type="text" id="vita" onkeyup="formatInput(this); calculateCash()">
 
     <br><br>
 
     <label for="">GTB POS</label>
-    <input type="number" id="gtbpos" onkeyup="calculateCash()">
+    <input type="text" id="gtbpos" onkeyup="formatInput(this); calculateCash()">
 
     <br><br>
 
     <label for="">PB POS</label>
-    <input type="number" id="pbpos" onkeyup="calculateCash()">
+    <input type="text" id="pbpos" onkeyup="formatInput(this); calculateCash()">
 
     <br><br>
     <label for="">PB Transfer</label>
-    <input type="number" id="pbtf" onkeyup="calculateCash()">
+    <input type="text" id="pbtf" onkeyup="formatInput(this); calculateCash()">
 
     <br><br>
 
     <label for="">GTB Transfer</label>
-    <input type="number" id="gtbtf" onkeyup="calculateCash()">
+    <input type="text" id="gtbtf" onkeyup="formatInput(this); calculateCash()">
 
     <br><br><br>
 
