@@ -2,9 +2,21 @@
 let totalAmount = 0;
 
 function formatInput(input) {
-  // Remove any existing commas and format with commas
+  // Remove any existing commas
   let value = input.value.replace(/,/g, '');
-  if (value && !isNaN(value)) {
+  
+  // Allow empty input or input ending with a single decimal point
+  if (value === '' || value === '.') {
+    return;
+  }
+  
+  // If the value ends with a decimal point, don't format yet
+  if (value.endsWith('.')) {
+    return;
+  }
+  
+  // Check if it's a valid number
+  if (!isNaN(value) && value !== '') {
     input.value = Number(value).toLocaleString();
   }
 }
