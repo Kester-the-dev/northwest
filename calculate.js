@@ -17,7 +17,11 @@ function formatInput(input) {
   
   // Check if it's a valid number
   if (!isNaN(value) && value !== '') {
-    input.value = Number(value).toLocaleString();
+    // Split into integer and decimal parts to preserve decimal formatting
+    let parts = value.split('.');
+    let integerPart = Number(parts[0]).toLocaleString();
+    let decimalPart = parts[1] ? '.' + parts[1] : '';
+    input.value = integerPart + decimalPart;
   }
 }
 
