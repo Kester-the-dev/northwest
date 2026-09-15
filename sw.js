@@ -1,4 +1,4 @@
-const CACHE_NAME = 'northwest-calculator-v1';
+const CACHE_NAME = 'northwest-calculator-v2';
 const APP_FILES = [
     './',
     './index.html',
@@ -11,14 +11,39 @@ const APP_FILES = [
 
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => cache.addAll(APP_FILES))
+        caches.open(CACHE_NAME)
+            .then(cache => cache.addAll(APP_FILES))
+            .then(() => self.skipWaiting())
+    );
+});
+
+self.addEventListener('activate', event => {
+    event.waitUntil(
+        caches.keys()
+            .then(cacheNames => Promise.all(
+                cacheNames
+                    .filter(cacheName => cacheName !== CACHE_NAME)
+                    .map(cacheName => caches.delete(cacheName))
+            ))
+            .then(() => self.clients.claim())
     );
 });
 
 self.addEventListener('fetch', event => {
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request)
+                .then(response => {
+                    const responseCopy = response.clone();
+                    caches.open(CACHE_NAME).then(cache => cache.put('./index.html', responseCopy));
+                    return response;
+                })
+                .catch(() => caches.match('./index.html'))
+        );
+        return;
+    }
+
     event.respondWith(
-        caches.match(event.request).then(cachedResponse => {
-            return cachedResponse || fetch(event.request);
-        })
+        caches.match(event.request).then(cachedResponse => cachedResponse || fetch(event.request))
     );
 });
