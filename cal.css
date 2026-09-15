@@ -1,22 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  min-height: 100vh;
+  margin: 0;
+  padding: clamp(16px, 4vw, 48px);
   font-family: Arial, sans-serif;
   background: green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: center;
+  gap: 24px;
 }
 
 h6 {
   text-align: center;
   display: none;
+  grid-column: 1 / -1;
+  margin: 0;
 }
 
 .container {
   background: green;
-  padding: 25px;
+  width: 100%;
+  max-width: 570px;
+  padding: clamp(20px, 3vw, 32px);
   border-radius: 12px;
-  width: 570px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -35,10 +45,12 @@ label {
 
 input {
   width: 100%;
+  min-width: 0;
   padding: 8px;
   margin-top: 5px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font: inherit;
 }
 
 .result {
@@ -67,8 +79,9 @@ input {
 }
 
 .clear-both-button {
-  max-width: 570px;
-  margin: 0 auto 15px;
+  grid-column: 1 / -1;
+  width: min(100%, 570px);
+  margin: -8px auto 0;
 }
 
 hr {
@@ -76,42 +89,21 @@ hr {
   margin-bottom: 20px;
 }
 
-/* ---------- TABLETS (max-width: 1024px) ---------- */
-@media (max-width: 1024px) {
+/* ---------- TABLETS AND PHONES ---------- */
+@media (max-width: 900px) {
   body {
-    height: auto;
-    padding: 20px;
-    align-items: flex-start;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: 16px;
   }
 
   h6 {
     display: block;
-    align-items: center;
   }
 
   .container {
-    width: 100%;
     max-width: 700px;
-    margin-bottom: 20px;
-  }
-}
-
-/* ---------- SMALL TABLETS (max-width: 768px) ---------- */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    padding: 15px;
-  }
-
-  h6 {
-    display: block;
-    align-items: center;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 100%;
-    padding: 20px;
+    margin: 0 auto;
   }
 
   h1 {
@@ -131,17 +123,11 @@ hr {
 /* ---------- PHONES (max-width: 480px) ---------- */
 @media (max-width: 480px) {
   body {
-    padding: 10px;
-
-  }
-
-  h6 {
-    display: block;
-    align-items: center;
+    padding: 12px;
   }
 
   .container {
-    padding: 5px;
+    padding: 16px;
     border-radius: 10px;
   }
 
@@ -166,5 +152,9 @@ hr {
   hr {
     margin-top: 15px;
     margin-bottom: 15px;
+  }
+
+  .clear-both-button {
+    margin-top: 0;
   }
 }
