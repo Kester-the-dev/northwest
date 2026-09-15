@@ -1,83 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Northwest Litres Calculator</title>
     <link rel="stylesheet" href="cal.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.svg">
+    <meta name="theme-color" content="#008000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
+
 <body>
 
- <div class="container">
-    <h1>Northwest</h1>
+    <div class="container">
+        <h1>Northwest</h1>
 
-    <label>Opening 1</label>
-    <input type="text" id="open1" onkeyup="formatInput(this); calculate()">
+        <label>Opening 1</label>
+        <input type="text" id="open1" onkeyup="formatInput(this); calculate()">
 
-    <label>Opening 2</label>
-    <input type="text" id="open2" onkeyup="formatInput(this); calculate()">
-                
-                    <hr>
-
-    <label>Closing 1</label>
-    <input type="text" id="close1" onkeyup="formatInput(this); calculate()">
-
-    <label>Closing 2</label>
-    <input type="text" id="close2" onkeyup="formatInput(this); calculate()">
-
-    <label>Price per Litre</label>
-    <input type="text" id="price" onkeyup="formatInput(this); calculate()">
-
-    <div class="result" id="result">
-        Litres (Face 1): 0 <br>
-        Litres (Face 2): 0 <br><br>
+        <label>Opening 2</label>
+        <input type="text" id="open2" onkeyup="formatInput(this); calculate()">
 
         <hr>
 
-        <strong>Total Litres: 0</strong><br>
-        <strong>Total Amount: ₦0</strong>
-  </div>
-</div>
+        <label>Closing 1</label>
+        <input type="text" id="close1" onkeyup="formatInput(this); calculate()">
 
-<div class="container">
+        <label>Closing 2</label>
+        <input type="text" id="close2" onkeyup="formatInput(this); calculate()">
 
-    <h1>Mode of payment</h1>
+        <label>Price per Litre</label>
+        <input type="text" id="price" onkeyup="formatInput(this); calculate()">
+
+        <div class="result" id="result">
+            Litres (Face 1): 0 <br>
+            Litres (Face 2): 0 <br><br>
+
+            <hr>
+
+            <strong>Total Litres: 0</strong><br>
+            <strong>Total Amount: ₦0</strong>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <h1>Mode of payment</h1>
 
 
-    <label for="">Voucher</label>
-    <input type="text" id="voucher" onkeyup="formatInput(this); calculateCash()">
+        <label for="">Voucher</label>
+        <input type="text" id="voucher" onkeyup="formatInput(this); calculateCash()">
 
-    <br><br>
+        <br><br>
 
-    <label for="">Vita</label>
-    <input type="text" id="vita" onkeyup="formatInput(this); calculateCash()">
+        <label for="">Vita</label>
+        <input type="text" id="vita" onkeyup="formatInput(this); calculateCash()">
 
-    <br><br>
+        <br><br>
 
-    <label for="">GTB POS</label>
-    <input type="text" id="gtbpos" onkeyup="formatInput(this); calculateCash()">
+        <label for="">GTB POS</label>
+        <input type="text" id="gtbpos" onkeyup="formatInput(this); calculateCash()">
 
-    <br><br>
+        <br><br>
 
-    <label for="">PB POS</label>
-    <input type="text" id="pbpos" onkeyup="formatInput(this); calculateCash()">
+        <label for="">PB POS</label>
+        <input type="text" id="pbpos" onkeyup="formatInput(this); calculateCash()">
 
-    <br><br>
-    <label for="">PB Transfer</label>
-    <input type="text" id="pbtf" onkeyup="formatInput(this); calculateCash()">
+        <br><br>
+        <label for="">PB Transfer</label>
+        <input type="text" id="pbtf" onkeyup="formatInput(this); calculateCash()">
 
-    <br><br>
+        <br><br>
 
-    <label for="">GTB Transfer</label>
-    <input type="text" id="gtbtf" onkeyup="formatInput(this); calculateCash()">
+        <label for="">GTB Transfer</label>
+        <input type="text" id="gtbtf" onkeyup="formatInput(this); calculateCash()">
 
-    <br><br><br>
+        <br><br><br>
 
-    <strong>Total cash: 0</strong>
-</div>
+        <strong>Total cash: 0</strong>
+    </div>
 
-            <h6><strong>MORE THAN YOU EXPECT</strong></h6>
-  <script src="calculate.js"></script>
+    <h6><strong>MORE THAN YOU EXPECT</strong></h6>
+    <script src="calculate.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+        }
+    </script>
 
 </body>
+
 </html>

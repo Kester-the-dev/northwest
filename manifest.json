@@ -1,0 +1,23 @@
+{
+    "name": "Northwest Litres Calculator",
+    "short_name": "Northwest",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#008000",
+    "theme_color": "#008000",
+    "description": "Calculate litres, payment totals, and cash balances.",
+    "icons": [
+        {
+            "src": "icon-192.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icon-512.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}
