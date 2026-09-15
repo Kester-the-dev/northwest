@@ -1,69 +1,90 @@
 body {
-      font-family: Arial, sans-serif;
-      background: green;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+  font-family: Arial, sans-serif;
+  background: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    h6{
-        text-align: center;
-        display: none;
-    }
+h6 {
+  text-align: center;
+  display: none;
+}
 
-    .container {
-      background: green;
-      padding: 25px;
-      border-radius: 12px;
-      width: 570px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
+.container {
+  background: green;
+  padding: 25px;
+  border-radius: 12px;
+  width: 570px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
 
-     h1 {
-      text-align: center;
-      color: white;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
 
-    label {
-      font-weight: bold;
-      margin-top: 10px;
-      display: block;
-    }
+label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
 
-     input {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
 
-    .result {
-      margin-top: 15px;
-      background: #eef5ff;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 15px;
-      text-align: center;
-    }
+.result {
+  margin-top: 15px;
+  background: #eef5ff;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  text-align: center;
+}
 
-    hr{
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+.reset-button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #b00020;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-    /* ---------- TABLETS (max-width: 1024px) ---------- */
+.reset-button:active {
+  background: #850018;
+}
+
+.clear-both-button {
+  max-width: 570px;
+  margin: 0 auto 15px;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* ---------- TABLETS (max-width: 1024px) ---------- */
 @media (max-width: 1024px) {
   body {
     height: auto;
     padding: 20px;
     align-items: flex-start;
   }
-  
-  h6{
+
+  h6 {
     display: block;
     align-items: center;
   }
@@ -81,7 +102,8 @@ body {
     flex-direction: column;
     padding: 15px;
   }
-    h6{
+
+  h6 {
     display: block;
     align-items: center;
   }
@@ -110,9 +132,10 @@ body {
 @media (max-width: 480px) {
   body {
     padding: 10px;
-   
+
   }
-    h6{
+
+  h6 {
     display: block;
     align-items: center;
   }

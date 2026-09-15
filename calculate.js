@@ -78,6 +78,32 @@ function calculateCash() {
         "Total cash: ₦" + totalCash.toLocaleString();
 }
 
+function clearInputs(inputIds) {
+    inputIds.forEach(id => {
+        document.getElementById(id).value = "";
+    });
+}
+
+function clearLitres() {
+    clearInputs(["open1", "open2", "close1", "close2", "price"]);
+    totalAmount = 0;
+    calculate();
+}
+
+function clearMoney() {
+    clearInputs(["voucher", "vita", "gtbpos", "pbpos", "pbtf", "gtbtf"]);
+    calculateCash();
+}
+
+function clearBoth() {
+    clearInputs([
+        "open1", "open2", "close1", "close2", "price",
+        "voucher", "vita", "gtbpos", "pbpos", "pbtf", "gtbtf"
+    ]);
+    totalAmount = 0;
+    calculate();
+}
+
 // ADD LIVE KEYUP TO PAYMENT INPUTS
 document.addEventListener("DOMContentLoaded", () => {
     // Meter inputs
@@ -106,4 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
             calculateCash();
         });
     });
+
+    document.getElementById("clearLitresButton").addEventListener("click", clearLitres);
+    document.getElementById("clearMoneyButton").addEventListener("click", clearMoney);
+    document.getElementById("clearBothButton").addEventListener("click", clearBoth);
 });
